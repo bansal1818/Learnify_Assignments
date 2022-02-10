@@ -1,0 +1,25 @@
+package demo.Assignments;
+public class Employee {
+	
+	int EmpCode;
+	String EmpName;
+        String des;
+	String MobileNo;
+	
+	public void display() {
+		System.out.println(" Empcode = "+EmpCode+"\n EmpName = "+ EmpName+"\n Designation = "+des+"\n Mobile No. = "+ MobileNo);
+	}
+
+	public static void main(String[] args) {
+		
+		Employee e1 = new Employee();
+		e1.EmpCode = 2022;
+		e1.EmpName = "Vinay";
+		e1.des = "Intern";
+		e1.MobileNo = "8058XXXXXX";
+		
+		e1.display();
+
+	}
+
+}
