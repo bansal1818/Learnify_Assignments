@@ -1,0 +1,51 @@
+package demo.Assignments;
+
+class Parent{
+	
+	void display() {
+		System.out.println("i am in Parent Class");
+	}
+}
+
+class C1 extends Parent{
+	
+	void displayChild1() {
+		System.out.println("I am in c1");
+	}
+}
+
+class C2 extends Child1{
+	void displayChild2() {
+		System.out.println("I am in c2");
+	}
+}
+
+class Ex1 extends Parent{
+	void displayEx1() {
+		System.out.println("I am in class Ex1");
+	}
+}
+
+
+public class InheritDemo {
+
+	public static void main(String[] args) 
+{
+		
+		
+		C1 ob1 = new C1();
+		ob11.displayC1();
+		ob11.display();
+		C2 ob2 = new C2();
+		ob2.displayC2();
+		ob2.displayC1();
+		ob2.display();
+		ex1 ob3 = new Ex1();
+		ob3.displayEx1();
+	        ob3.display();
+		
+		ob3.display();
+
+	}
+
+}
