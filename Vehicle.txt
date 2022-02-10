@@ -1,0 +1,58 @@
+package demo.Assignments;
+
+public class Vehicle {
+	
+	private 
+	int Speed;
+	int Avg;
+	int Gears;
+	String name;
+	
+	public
+	
+	Vehicle(String name) {
+		this.name = name;
+	}
+	
+	int getSpeed() {
+		return Speed;
+	}
+
+	void setSpeed(int Speed) {
+		Speed = Speed;
+	}
+
+	int getAvg() {
+		return Avg;
+	}
+
+	void setAvg(int avg) {
+		Avg = avg;
+	}
+
+	int getGears() {
+		return Gears;
+	}
+	
+	String getName() {
+		return this.name;
+	}
+
+	void setGears(int gears) {
+		Gears = gears;
+	}
+		
+
+	public static void main(String[] args) {
+		
+		Vehicle V = new Vehicle("suzuki");
+		V.setAvg(40);
+		V.setGears(4);
+		V.setSpeed(200);
+		System.out.println(" Car Name = "+V.getName()+"\n Average = "+V.getAvg()+"\n Max Speed"+V.getSpeed()+"\n Gears = "+V.getGears());
+
+	}
+
+	
+
+}
