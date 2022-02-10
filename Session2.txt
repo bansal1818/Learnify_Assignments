@@ -1,0 +1,77 @@
+1. Create a student class using student properties and create and execute a method without a constructor.
+
+package demo.Assignments;
+
+public class Student {
+	
+	String st_name;
+	int st_age,st_roll_no;
+	public void st_data(){
+		st_name = "Vinay";
+		st_age = 23;
+		st_roll_no =2022;
+		
+		
+	}
+	public void display() {
+		System.out.println(st_name+" "+st_age+" "+st_roll_no);
+	}
+
+	public static void main(String[] args) {
+		
+		Student st1 = new Student();
+		st1.st_data();
+		st1.display();
+		
+		
+
+	}
+
+
+
+2. Create class Test print all the methods of String.
+
+package demo.Assignments;
+
+public class Test {
+
+	public static void main(String[] args) {
+		String s = "abcdefg";
+		
+		System.out.println(s.toUpperCase());
+		System.out.println(s.charAt(0));
+		System.out.println(s.compareTo("acb"));
+		System.out.println(s.concat("hijkl"));
+		System.out.println(s.contains("a"));
+		System.out.println(s.endsWith("g"));
+		System.out.println(s.indexOf("a"));
+		System.out.println(s.isEmpty());
+		System.out.println(s.replace('a', 'z'));
+		System.out.println(s.length());
+		System.out.println(s.startsWith("a"));
+	}
+
+}
+
+3. Create a class Add add two numbers by using Wrapper class.
+
+package demo.Assignments;
+
+public class AddWrapper {
+
+	public static void main(String[] args) 
+{
+	
+		int a = Integer.parseInt(args[0]);
+		int b = Integer.parseInt(args[1]);
+		System.out.println(a+b);
+
+	}
+
+}
+
+
+
+
+
+}
