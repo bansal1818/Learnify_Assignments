@@ -1,0 +1,25 @@
+package demo.Assignments;
+
+class Animal{
+	void showdata() {
+		System.out.println("I am an Animal");
+	}
+}
+
+class Dog extends Animal{
+	void showdata() {
+		System.out.println("I am a Dog");
+	}
+}
+
+public class Animal1 {
+
+	public static void main(String[] args) {
+	
+		
+		Dog rocky = new Dog();
+		rocky.showdata();
+
+	}
+
+}
