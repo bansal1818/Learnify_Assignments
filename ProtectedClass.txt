@@ -1,0 +1,13 @@
+package java.Assignments;
+
+public class ProtectedClass {
+
+	protected void show() {
+		System.out.println("I am Protected");
+	}
+	public static void main(String[] args) {
+	
+
+	}
+
+}
