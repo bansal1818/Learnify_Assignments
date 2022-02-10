@@ -1,0 +1,128 @@
+1.Print Hello World.
+
+class One
+{
+public static void main(String args[])
+{
+System.out.println("Hello World");
+}
+}
+
+
+2.Add two numbers/binary numbers/characters
+
+class Two
+{
+public static void main(String args[])
+{
+int a=20,b=30,c;
+c=a+b;
+System.out.println(c);
+}
+}
+
+3.Calculate compound interest Calculate the power of a number Swap two numbers.
+
+class Three
+{
+public static void main(String args[])
+{
+float p=1000,r=4,t=3,CI=1;
+float k;
+k=p*(1+r/100);
+
+while(t>0)
+{
+CI=CI*k;
+t--;
+}
+System.out.println(CI);
+}
+}
+
+
+
+4.1 Calculate area and circumference of a circle using multiple classes. Java program to find ASCII value of a character.
+
+class Six
+{
+public static void main(String args[])
+{
+double r=5,Area,C;
+Area=3.14*r*r;
+C=2*3.14*r;
+System.out.println("Area="+Area+", Cir="+C);
+}
+}
+
+
+4.2 Calculate the area of rectangle.
+
+class Seven
+{
+public static void main(String args[])
+{
+double l=3.7,w=6.9,A;
+A=l*w;
+System.out.println(A);
+}
+}
+
+
+4.3 Java program to find ASCII value of a character.
+
+class Eight
+{
+public static void main(String args[])
+{
+char c='a';
+int A=c;
+System.out.println(A);
+}
+}
+
+
+5.Print default values of primitive data type variable.
+
+class Nine
+{
+public static void main()
+{
+int k;
+char c;
+float f;
+doublre d;
+chort s;
+byte b;
+System.out.println(k);
+System.out.println(c);
+System.out.println(f);
+System.out.println(d);
+System.out.println(s);
+System.out.println(b);
+
+
+}
+
+}
+
+
+6.Print Fibonacci series till n.
+
+class Ten
+{
+public static void main(String args[])
+{
+int f=0,s=1,n=10,t;
+System.out.println(f+"\n"+s);
+
+while(n>2)
+{
+t=f+s;
+f=s;
+s=t;
+System.out.println(s);
+n--;
+}
+}
+}
