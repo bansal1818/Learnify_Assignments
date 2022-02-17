@@ -1,0 +1,132 @@
+1. File Handling.
+
+package FileHandling;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class FileHandlingEx {
+
+	public static void main(String[] args) throws IOException {
+		
+		
+//		File f1 = new File("test1.txt");
+//		f1.createNewFile();
+		
+		FileWriter f = new FileWriter("test1.txt");
+//		f.write("Hii Vinay");
+		
+		
+	BufferedWriter B = new BufferedWriter(f);
+	B.write("Hii Bansal");	
+	B.write(123);
+		
+		
+	B.close();
+	
+	File f1 = new File("test1.txt");
+		
+//		FileReader t = new FileReader(f);
+//		while(t.read() != -1) {
+//			char c = (char) t.read();
+//			System.out.println(c);
+//		}
+		Scanner sc = new Scanner(f1);
+		while(sc.hasNext())
+			System.out.println(sc.next());
+		
+		
+		
+		sc.close();
+	}
+
+}
+
+2.
+
+package FileHandling;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class FileHandlingex2 {
+
+	public static void main(String[] args) throws IOException {
+		
+		
+		File f1 = new File("test1.txt");
+		f1.createNewFile();
+		
+		FileWriter f = new FileWriter("test1.txt");
+		f.write("Hii Vinay");
+		f.write(12);
+		f.close();
+		BufferedWriter b = new BufferedWriter(f);
+		b.write(122);
+		
+
+	FileWriter f12 = new FileWriter("test1.txt");
+	
+	PrintWriter p = new PrintWriter(f12);
+	
+	
+	p.print("I am Vinay Bansal");
+	p.print(123);
+	p.close();
+	
+	
+	
+//	File f1 = new File("test1");
+		System.out.println(f1.mkdir());
+		FileReader t = new FileReader(f1);
+		while(t.read() != -1) {
+			char c = (char) t.read();
+			System.out.println(c);
+		}
+	t.close();
+//		BufferedReader t = new BufferedReader(f1);
+
+		Scanner sc = new Scanner(f1);
+		while(sc.hasNext())
+			System.out.println(sc.next());
+		
+		
+		
+	
+		sc.close();
+	
+	
+	}
+
+}
+
+
+
+
+3.Generics.
+
+package FileHandling;
+
+import java.util.*;
+public class GenericsEx {
+
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> arr = new ArrayList<>();
+		for(int i=0;i<10;i++) {
+			arr.add(i);
+		}
+		System.out.println("ArrayList"+arr);
+		
+		LinkedList<Integer> ll = new LinkedList<>();
+		for(int i = 0;i < 10; i++) {
+			ll.add(i);
+		}
+		System.out.println("LinkedList"+ll);
+		
+	}
+	
+}
+
+
+
