@@ -1,0 +1,50 @@
+// 1.Create a table Student add student details modify the all the table columns by using commands.
+
+
+CREATE TABLE Students( rollno int , name char (200) ,class int,section char(50);
+
+Insert into Students(rollno,name,class,section) Values(101,'Amit',10,'A');  //insert the values
+
+desc students;  //sort the data returned in descending order
+
+select * FROM Students;  //print the table with data
+
+select name from student;
+
+TRUNCATE TABLE students;
+
+DROP TABLE Students;
+
+RENAME TABLE Students to Student1;
+
+DELETE from EMPLOYEE where rollno='101';  
+
+
+
+
+//2. Create a tables Manager and Employee add details of both tables and join by using equijoin.
+
+
+employee tables:
+
+
+create table employee(EmpID int, name varchar (50),Dept varchar (50),salary int);
+
+INSERT INTO employee (EmpID,name,Dept,salary) VALUES(101,'vinay','IT',10000),(102,'Shubham','CS',20000),(103,'Uma','ME',30000),(104,'Aman','CE',40000);
+    
+       
+select * from employee;
+
+
+
+Manager Tables:
+
+
+create table manager(MID int, name varchar (50));
+
+INSERT INTO employee (MID,name) VALUES(201,'vinay1');
+       
+select * from manager;
+
+
+
