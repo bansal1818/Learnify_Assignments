@@ -1,0 +1,24 @@
+
+
+1. Review of JDBC classes and Interfaces.
+
+
+
+
+
+JDBC API is available in two packages java.sql, core API and javax.sql JDBC optional packages. Following are the important classes and interfaces of JDBC.
+
+JDBC is an application programming interface (API) included in the Java™ platform that enables Java programs to connect to a wide range of databases.
+
+
+classes/interface	
+
+
+java.sql.CallableStatement -	Execute stored procedures
+java.sql.CLOB -  Provide support for CLOB(Character Large Object) SQL type.
+java.sql.Date - Provide support for Date SQL type.
+java.sql.Driver - create an instance of a driver with the DriverManager.
+
+
+
+	
