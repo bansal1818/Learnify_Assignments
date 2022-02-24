@@ -1,0 +1,28 @@
+//1. Create a Product class write a query add and update and delete products.
+
+
+CREATE TABLE Product(  
+    PId int,  
+    PName varchar(255),  
+    PValue int;
+   
+);  
+
+INSERT INTO Product(PId,PName,Pvalue)
+VALUES (101, 'XYZ', 123); 
+INSERT INTO Employee (PId,PName,PValue)
+VALUES (102,'ABC',456);
+
+Select PId, PName from Product;  
+  
+Select * from Product;
+
+UPDATE Employee  
+SET PName= 'Milk', PValue=789  
+WHERE PId= 101;
+
+DELETE FROM Product WHERE EmpId=123;   
+
+DELETE From Employee  ;  // Delete All Records   
+
+//2. CRUD operations on Pizza add,update,delete,create.
