@@ -1,0 +1,211 @@
+ClassPath
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-aop-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-aspects-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-beans-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-context-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-context-indexer-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-context-support-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-core-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-expression-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-instrument-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-jcl-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-jdbc-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-jms-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-messaging-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-orm-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-oxm-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-test-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-tx-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-web-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-webflux-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vinay.Bansal/Downloads/spring 5.x/spring-websocket-5.0.0.RELEASE.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
+
+
+
+Project
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>springCORE</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+</projectDescription>
+
+
+
+
+
+package com.employeeJPA;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="employeeData")
+public class Employee {
+	@Id
+	//@Column(name="emmployeeid")
+	private int empid;
+	private String empname;
+	private int empsal;
+	private String empAdd;
+	
+	
+	public int getEmpid() {
+		return empid;
+	}
+	public void setEmpid(int empid) {
+		this.empid = empid;
+	}
+	public String getEmpname() {
+		return empname;
+	}
+	public void setEmpname(String empname) {
+		this.empname = empname;
+	}
+	public int getEmpsal() {
+		return empsal;
+	}
+	public void setEmpsal(int empsal) {
+		this.empsal = empsal;
+	}
+	public String getEmpAdd() {
+		return empAdd;
+	}
+	public void setEmpAdd(String empAdd) {
+		this.empAdd = empAdd;
+	}
+	
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
+	public Employee(int empid, String empname, int empsal, String empAdd) {
+		super();
+		this.empid = empid;
+		this.empname = empname;
+		this.empsal = empsal;
+		this.empAdd = empAdd;
+	}
+	@Override
+	public String toString() {
+		return "Employee [empid=" + empid + ", empname=" + empname + ", empsal=" + empsal + ", empAdd=" + empAdd + "]";
+	}
+	
+
+}
+
+
+
+
+
+
+
+
+
+package com.employeeJPA;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class Test {
+	
+	public static void main(String[] args) {
+		
+		EntityManagerFactory factory=Persistence.createEntityManagerFactory("Jash");
+		
+		EntityManager entity=factory.createEntityManager(); 
+		
+		
+		Employee emp= new Employee(1502, "vinay", 10000, "jpr");
+		
+		entity.getTransaction().begin();
+		
+		entity.persist(emp);
+		
+		Employee emp2=entity.find(Employee.class, 1502);
+		//System.out.println(emp); 
+		
+emp2.setEmpAdd("blr");
+		emp2.setEmpname("shatya");
+		emp2.setEmpsal(20000);
+		
+		entity.merge(emp);
+		//entity.remove(emp);
+		
+		Employee emp1=entity.find(Employee.class, 1502);
+		System.out.println(emp1);
+		//entity.getTransaction().commit();
+		
+	}
+
+}
+
+
+
+Persistence.xml
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                      http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+  version="2.0">
+  
+	<persistence-unit name="Jash" transaction-type="RESOURCE_LOCAL">
+	
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>com.employeeJPA.Employee</class>
+
+		<properties>
+		<!-- database properties -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/jash1" />
+			<property name="javax.persistence.jdbc.user" value="postgres" />
+			<property name="javax.persistence.jdbc.password" value="1212" />
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			
+			<!-- hibernate properties -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/> <!-- create/update  -->
+			<property name="hibernate.show_sql" value="true"/>
+		</properties>
+		
+	</persistence-unit>
+	
+</persistence>
+
+
+
+
+
+
+
