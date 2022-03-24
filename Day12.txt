@@ -1,0 +1,353 @@
+Session-1
+
+
+1. create a HashSet class by add 10 numbers by using for loop and extra add some more objects and print the all the values.
+
+package Day11;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class HashSet2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Set set=new HashSet();
+		
+		for(int i=0;i<10;i++)
+		{
+			set.add(i);
+		}
+		
+		System.out.println("Set1="+set);
+		HashSet set1=new HashSet();
+		
+		for(int i=25;i<30;i++)
+		{
+	      set1.add(i);
+	     }
+		
+		System.out.println("Set2="+set1);
+		
+		set.addAll(set1);
+
+		System.out.println("Set1+Set2="+set);
+	}
+
+}
+
+
+2. create a LinkedHashSet class by add 10 numbers by using for loop and extra add some more objects and print the all the values.
+ 
+
+package Day11;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class LinkedHashSet2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Set set=new LinkedHashSet();
+		
+		for(int i=0;i<10;i++)
+		{
+			set.add(i);
+		}
+		
+		System.out.println("Set1="+set);
+		LinkedHashSet set1=new LinkedHashSet();
+		
+		set1.add("Vinay");
+		set1.add("Shubham");
+		set1.add("Sahil");
+		set1.add("Uma");
+		
+		
+		
+		System.out.println("Set2="+set1);
+		
+		set.addAll(set1);
+
+		System.out.println("Set1+Set2="+set);
+	}
+
+}
+
+
+3. By using Iterator class iterate the HashSet class Elements.
+
+
+package Day11;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+public class HashSet2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Set set=new HashSet();
+		
+		for(int i=0;i<10;i++)
+		{
+			set.add(i);
+		}
+		
+		System.out.println("Set1="+set);
+		HashSet set1=new HashSet();
+		
+		set1.add("Vinay");
+		set1.add("Shubham");
+		set1.add("Sahil");
+		set1.add("Uma");
+		
+		
+		
+		
+		System.out.println("Set2="+set1);
+		
+		set.addAll(set1);
+		
+		System.out.println();
+		
+		System.out.println("Using Iterator;");
+		Iterator it=set.iterator();
+		
+	
+		while(it.hasNext())
+		{
+			System.out.println(it.next());
+		}
+
+		System.out.println();
+		System.out.println("Set1+Set2="+set);
+	}
+
+}
+
+
+
+4. By using Iterator class iterate the LinkedHashSet Elements.
+
+package Day11;
+
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class LinkedHashSet2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Set set=new LinkedHashSet();
+		
+		for(int i=0;i<10;i++)
+		{
+			set.add(i);
+		}
+		
+		System.out.println("Set1="+set);
+		LinkedHashSet set1=new LinkedHashSet();
+		
+		set1.add("Vinay");
+		set1.add("Shubham");
+		set1.add("Sahil");
+		set1.add("Uma");
+		
+		
+		
+		
+		System.out.println("Set2="+set1);
+		
+		set.addAll(set1);
+		
+		System.out.println();
+		
+		System.out.println("Using Iterator;");
+		Iterator it=set.iterator();
+		
+	
+		while(it.hasNext())
+		{
+			System.out.println(it.next());
+		}
+
+		System.out.println();
+		System.out.println("Set1+Set2="+set);
+	}
+
+}
+
+5. By using generics cretae hashset class apply some methods,addall(),remove().
+
+
+package Day11;
+
+import java.util.HashSet;
+
+public class HashSet2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		HashSet<String> set1=new HashSet<>();
+		
+		set1.add("Vinay");
+		set1.add("Shubham");
+		set1.add("Sahil");
+		set1.add("Uma");
+		
+		System.out.println("Set1="+set1);
+		
+		set1.remove("Vinay");
+		
+		System.out.println("Set1="+set1);
+		
+		HashSet set2=new HashSet<>();
+		set2.add(5);
+		set2.add(15);
+		set2.add(10);
+		set2.add(20);
+		
+		System.out.println();
+		
+		System.out.println("Set2="+set2);
+		set1.addAll(set2);
+		
+		System.out.println();
+		System.out.println("Set1+Set2="+set1);
+		set1.clear();
+		System.out.println("Set1+Set2="+set1);
+		
+		
+		
+	}
+}
+
+
+
+Session-2
+
+
+1. create a class and print the elements by using keySet.
+
+
+package Day11;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class KeySet1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Map<String,String> map=new HashMap<>();
+				
+		map.put("India", "Delhi");
+		map.put("Pakisthan", "Ishlamabad");
+		map.put("Britain", "London");
+		map.put("America", "California");
+		
+		System.out.println(map);
+		
+}
+}
+
+
+
+2.  Create a class print all the elements with EntrySet.
+
+package Day11;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class KeySet2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Map<String,String> map=new HashMap<>();
+				
+		map.put("India", "Delhi");
+		map.put("Pakisthan", "Ishlamabad");
+		map.put("Britain", "London");
+		map.put("America", "California");
+		
+		for(Map.Entry<String,String> map1:map.entrySet())
+		{
+			System.out.println(map1);
+			System.out.println(map1.getKey());
+			System.out.println(map1.getValue());
+			
+			
+		}
+		
+		for(String key1:map.keySet())
+		{
+
+			System.out.println(key1);
+}
+		
+		
+}
+}
+
+
+
+3.  Create a class with HashMap use to print the values.
+
+
+package Day11;
+
+import java.util.HashMap;
+
+public class KeySet3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		HashMap<String,Integer> map=new HashMap<>();
+				
+		map.put("One", 1);
+		map.put("two", 2);
+		map.put("Three", 3);
+		map.put("Four", 4);
+		
+		System.out.println(map);
+		
+}
+}
+
+
+4. By Using LinkedHashMap add elements and print the values.
+
+
+package Day11;
+
+import java.util.LinkedHashMap;
+
+public class KeySet4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		LinkedHashMap map=new LinkedHashMap();
+				
+		map.put("Name", "Vinay");
+		map.put("Dept.", "IT");
+		map.put("Id", 123);
+		map.put("Salary", 473547);
+		
+		System.out.println(map);
+		
+}
+}

@@ -1,0 +1,377 @@
+Session-1
+
+
+1. Create a class of ArrayList and add the objects by using add method and print the all the values which you added.
+
+
+package Day11;
+import java.util.List;
+import java.util.ArrayList;
+
+public class Ex1 {
+
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> arr=new ArrayList();
+		arr.add(2);
+		arr.add(4);
+		arr.add(6);
+		arr.add(8);
+		arr.add(10);
+		
+		System.out.println(arr);
+		
+		List<Integer> list=new ArrayList();
+		list.add(5);
+		list.add(10);
+		list.add(15);
+		list.add(20);
+		list.add(25);
+		
+		System.out.println(list);
+		arr.addAll(list);
+		System.out.println(arr);
+	}
+}
+
+
+
+
+2. Create a class of Linked List add the heterogenous objects print all the objects.
+
+
+package Day11;
+import java.util.LinkedList;
+
+import java.util.List;
+
+public class LinkedList1 {
+
+	public static void main(String[] args) {
+		
+	    List ar=new LinkedList<>();
+		ar.add(12);
+		ar.add("Vinay");
+		ar.add('k');
+		ar.add(99.99);
+		
+		System.out.println(ar);
+	}
+}
+
+
+
+3. Create a LinkedList class and apply different methods for that class size(),contains(),isEmpty(),getFisrt(). print the results.
+
+
+package Day11;
+import java.util.LinkedList;
+
+public class LinkedList2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		LinkedList ls=new LinkedList();
+		ls.add(15);
+		ls.add(25);
+		ls.add("Vinay");
+		ls.add("Bansal");
+		
+		System.out.println(ls.size());
+		System.out.println(ls.isEmpty());
+		System.out.println(ls.contains("Vinay"));
+		System.out.println(ls.contains(20));
+		System.out.println(ls.getFirst());
+		System.out.println(ls.getLast());
+		System.out.println(ls.peek());
+		System.out.println(ls.get(1));
+		System.out.println(ls.remove(String.valueOf("Vinay")));
+        System.out.println(ls);
+		
+		
+	}
+
+}
+
+
+4. class name is test and taking arraylist object add different objects and print the values by using for loop and foreach loop.
+
+package Day11;
+import java.util.*;
+public class Ex1 {
+
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> arr=new ArrayList();
+		arr.add(2);
+		arr.add(4);
+		arr.add(6);
+		arr.add(8);
+		arr.add(10);
+		
+		System.out.println(arr);
+		
+		List<Integer> list=new ArrayList();
+		list.add(5);
+		list.add(10);
+		list.add(15);
+		list.add(20);
+		list.add(25);
+		
+		System.out.println(list);
+		arr.addAll(list);
+		System.out.println(arr);
+		
+		System.out.println("\n");
+		//Using For Loop
+		
+		for(int i=0;i<arr.size();i++)
+		{
+			System.out.print(arr.get(i)+" ");
+		}
+		
+		System.out.println("\n");
+		
+		//Using ForEach Loop
+		
+		for(Object a:arr)
+		{
+		System.out.print(a+" ");
+	}
+	}
+}
+
+ 
+5. Create a class with generics(perticular type integer) and add the values print even numbers.
+
+
+package Day11;
+import java.util.ArrayList;
+import java.util.List;
+
+public class EvenNum {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		List<Integer> list=new ArrayList();
+		
+		list.add(5);
+		list.add(10);
+		list.add(15);
+		list.add(20);
+		list.add(25);
+		list.add(30);
+		
+		System.out.println("Even Numbers in the Given List Are:");
+		for(Integer o:list)
+		{
+			if(o%2==0)
+			{
+				System.out.println(o);
+			}
+		}
+		
+	}
+
+}
+
+6. Create a ArrayList class by using Iterator print the values.
+
+package Day11;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Iterator;
+
+public class EvenNum {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+ 
+		List<Integer> list=new ArrayList();
+		
+		list.add(5);
+		list.add(10);
+		list.add(15);
+		list.add(20);
+		list.add(25);
+		list.add(30);
+		
+		
+		Iterator it=list.iterator();
+		
+		while(it.hasNext())
+		{
+			System.out.println(it.next());
+		}
+		
+	}
+
+}
+
+
+7. Create a class with generics and apply ListIterator cursor on that class and print the values.
+
+
+package Day11;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+public class ListIterate {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		List<Integer> list=new ArrayList();
+		
+		list.add(5);
+		list.add(12);
+		list.add(7);
+		list.add(8);
+		list.add(22);
+		
+		System.out.println(list);
+		
+		System.out.println();
+		
+		ListIterator ls=list.listIterator();
+		
+		while(ls.hasNext())
+		{
+			System.out.println(ls.next());
+		}
+	}
+
+}
+
+
+
+Session-2
+
+
+
+1. Create a priorityQueue class add elements and print the values.
+
+package Day11;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class PrQueue {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Queue<String> queue=new PriorityQueue<>();
+		queue.offer("Shubham");
+		queue.offer("Vinay");
+		queue.offer("Uma");
+		queue.offer("Bansal");
+		
+		System.out.println(queue);
+		
+	}
+
+}
+
+
+
+2. Create a class of HashSet add the heterogenous objects print all the objects.
+
+package Day11;
+import java.util.HashSet;
+import java.util.Set;
+
+public class HashSet1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Set set=new HashSet();
+		
+		set.add("Vinay");
+		set.add(12);
+		set.add("Bansal");
+		set.add(36.5);
+		
+		System.out.println(set);
+		
+		System.out.println();
+		for(Object o:set)
+		{
+			System.out.println(o);
+		}
+		
+		
+	}
+
+}
+
+
+3. Create a class of Linked HashSet add the heterogenous objects print all the objects.
+
+package Day11;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class LinkedHashSet1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Set set=new LinkedHashSet();
+		
+		set.add("Shubham");
+		set.add(121);
+		set.add("Sahil");
+		set.add(3676.5f);
+		
+		System.out.println(set);
+		
+		System.out.println();
+		for(Object o:set)
+		{
+			System.out.println(o);
+		}
+		
+		
+	}
+
+}
+
+
+
+4. By using Generics create Tree Set and print the all the values.
+
+package Day11;
+
+import java.util.Set;
+import java.util.TreeSet;
+
+public class TreeSet1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Set<Integer> set=new TreeSet<>();
+		set.add(12);
+		set.add(21);     
+		set.add(16);
+		set.add(19);
+		set.add(21);     
+		set.add(27);
+		
+		System.out.println(set);
+		
+		for(Object o:set)
+		{
+			System.out.println(o);
+		}
+		
+		
+	}
+
+}
+
+
