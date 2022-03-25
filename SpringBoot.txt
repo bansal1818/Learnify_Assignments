@@ -1,0 +1,383 @@
+*******************************************************************************com.ia package*************************************************************************
+
+SpringBootDemoApplication.java
+=============================
+
+package com.ia;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringBootDemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootDemoApplication.class, args);
+	}
+
+}
+
+
+*****************************************************************************com.ia.entity package********************************************************************
+
+Book.java
+==========
+
+package com.ia.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "springbootbook")
+public class Book {
+
+	@Id
+	@Column(name="bid", length=10)
+	private int bookId;
+	private String bookTitle;
+	private int bookPrice;
+	private String grade;
+	public int getBookId() {
+		return bookId;
+	}
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
+	}
+	public String getBookTitle() {
+		return bookTitle;
+	}
+	public void setBookTitle(String bookTitle) {
+		this.bookTitle = bookTitle;
+	}
+	public int getBookPrice() {
+		return bookPrice;
+	}
+	public void setBookPrice(int bookPrice) {
+		this.bookPrice = bookPrice;
+	}
+	public String getGrade() {
+		return grade;
+	}
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+	
+	public Book() {
+		// TODO Auto-generated constructor stub
+	}
+	public Book(int bookId, String bookTitle, int bookPrice, String grade) {
+		super();
+		this.bookId = bookId;
+		this.bookTitle = bookTitle;
+		this.bookPrice = bookPrice;
+		this.grade = grade;
+	}
+	@Override
+	public String toString() {
+		return "Book [bookId=" + bookId + ", bookTitle=" + bookTitle + ", bookPrice=" + bookPrice + ", grade=" + grade
+				+ "]";
+	}
+	
+	
+}
+
+****************************************************************************com.ia.dao package*********************************************************************
+
+BookDao.java interface
+=========================
+
+package com.ia.dao;
+
+import java.util.List;
+
+import com.ia.entity.Book;
+
+public interface BookDao {
+
+	Book addBook(Book book);
+
+	Book updateBook(Book book);
+
+	String deleteBook(int bookId);
+
+	Book getBook(int bookId);
+
+	List<Book> getAllBook();
+
+}
+
+
+BookDaoImpl.java class
+========================
+
+package com.ia.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
+
+import com.ia.entity.Book;
+
+@Repository
+public class BookDaoImpl implements BookDao {
+
+	@PersistenceContext
+	EntityManager entity;
+	
+	@Override
+	public Book addBook(Book book) {
+		entity.persist(book);
+		return entity.find(Book.class, book.getBookId());
+	}
+
+	@Override
+	public Book updateBook(Book book) {
+		
+		return entity.merge(book);
+	}
+
+	@Override
+	public String deleteBook(int bookId) {
+		Book book = entity.find(Book.class, bookId);
+		
+		if(book!=null)
+		{
+			entity.remove(book);
+			return "book deleted";
+		}
+		else {
+			return "no book found";
+		}
+	}
+
+	@Override
+	public Book getBook(int bookId) {
+	
+		return entity.find(Book.class, bookId);
+	}
+
+	@Override
+	public List<Book> getAllBook() {
+		TypedQuery<Book> result = entity.createQuery("select e from book e", Book.class);
+		return result.getResultList();
+	}
+
+}
+
+
+****************************************************************************com.ia.service package********************************************************************
+
+BookService.java Interface
+===========================
+
+package com.ia.service;
+
+import java.util.List;
+
+import com.ia.entity.Book;
+
+public interface BookService {
+
+	Book addBook(Book book);
+
+	Book updateBook(Book book);
+
+	String deleteBook(int bookId);
+
+	Book getBook(int bookId);
+
+	List<Book> getAllBook();
+
+}
+
+
+BookServiceImpl.java class
+===========================
+
+package com.ia.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ia.dao.BookDao;
+import com.ia.entity.Book;
+
+@Service
+@Transactional
+public class BookServiceimpl implements BookService {
+
+	@Autowired
+	BookDao dao;
+	
+	@Override
+	public Book addBook(Book book) {
+		
+		return dao.addBook(book);
+	}
+
+	@Override
+	public Book updateBook(Book book) {
+		
+		return dao.updateBook(book);
+	}
+
+	@Override
+	public String deleteBook(int bookId) {
+		return dao.deleteBook(bookId);
+	}
+
+	@Override
+	public Book getBook(int bookId) {
+		
+		return dao.getBook(bookId);
+	}
+
+	@Override
+	public List<Book> getAllBook() {
+		
+		return dao.getAllBook();
+	}
+
+}
+
+************************************************************************src/test/java --->com.ia package*************************************************************
+
+SpringBootDemoApplicationTests.java class
+=========================================
+
+package com.ia;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.ia.service.BookService;
+
+@SpringBootTest
+class SpringBootDemoApplicationTests {
+
+	@Autowired
+	BookService service;
+	
+//	@Test
+//	void testAddBook() {
+//		Book book = new Book(13,"english",500,"A");
+//		Book b = service.addBook(book);
+//		assertEquals(b.getBookTitle(),"english");
+//	}
+//	
+
+//	@Test
+//	void testUpdateBook() {
+//		Book book = new Book(13,"hindi",500,"A");
+//		Book b = service.updateBook(book);
+//		assertEquals(b.getBookTitle(),"hindi");
+//	}
+	
+//	@Test
+//	void testGetAllBook()
+//	{
+//		List<Book> b = service.getAllBook();
+//		assertTrue(b.size()>0);
+//	}
+	
+	@Test
+	void testDeleteBook()
+	{
+		String d = service.deleteBook(13);
+		assertEquals(d,"book deleted");
+	}
+}
+
+************************************************************************src/main/resources **************************************************************************
+
+application.properties
+========================
+
+server.port=6724
+spring.datasource.url=jdbc:postgresql://localhost:5432/Vinay
+spring.datasource.username=postgres
+spring.datasource.password=vinaySQL
+spring.datasource.driver-class-name=org.postgresql.Driver
+//spring.jpa.hibernate.ddl-auto=create
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+
+
+*******************************************************************************OUTPUT*******************************************************************************
+
+\c Vinay
+You are now connected to database "Vinay" as user "postgres".
+Vinay=# \dt
+             List of relations
+ Schema |      Name      | Type  |  Owner
+--------+----------------+-------+----------
+ public | book           | table | postgres
+ public | emp_info       | table | postgres
+ public | employee       | table | postgres
+ public | employee1      | table | postgres
+ public | pizza          | table | postgres
+ public | pizzamodel     | table | postgres
+ public | pizzatable     | table | postgres
+ public | product        | table | postgres
+ public | springbootbook | table | postgres
+ public | student        | table | postgres
+ public | student1       | table | postgres
+ public | studentdetail  | table | postgres
+ public | training       | table | postgres
+(13 rows)
+
+
+Vinay=# select * from springbootbook
+Vinay-# ;
+ bid | book_price | book_title | grade
+-----+------------+------------+-------
+(0 rows)
+
+
+Vinay=# select * from springbootbook;
+ bid | book_price | book_title | grade
+-----+------------+------------+-------
+  13 |        500 | english    | A
+(1 row)
+
+
+Vinay=# select * from springbootbook;
+ bid | book_price | book_title | grade
+-----+------------+------------+-------
+  13 |        500 | hindi      | A
+(1 row)
+
+
+Vinay=# select * from springbootbook;
+ bid | book_price | book_title | grade
+-----+------------+------------+-------
+(0 rows)
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete

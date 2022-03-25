@@ -1,0 +1,591 @@
+
+   
+************************************************************************Simple Application Context Spring Program**************************************************************
+
+Student.java
+=============
+
+package com.springcontext;
+
+public class Student {
+	
+	private int id;
+	private String name;
+	
+	//getters and setters
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	//param constructor
+	public Student(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
+	//default constructor
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	//toString() method
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + "]";
+	}
+	
+	
+}
+
+
+Test.java
+=========
+
+package com.springcontext;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		ApplicationContext factory = new ClassPathXmlApplicationContext("springconfiguration.xml");
+		
+		Student std = (Student) factory.getBean("student");
+		System.out.println(std);
+	}
+}
+
+
+springconfiguration.xml
+=======================
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<context:annotation-config></context:annotation-config>
+	
+<bean class = "com.springapplicationcontext.Student" id = "student">
+	<property name = "id" value = "10"></property>
+	<property name = "name" value="ritika"> </property>	
+</bean>
+
+</beans>
+
+Output
+=======
+
+Student [id=10, name=ritika]
+
+
+
+******************************************************************Application Context Spring (byType annotation)**********************************************************
+
+Student.java
+=============
+
+package com.springcontext;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class Student {
+	
+	private int id;
+	private String name;
+	
+	@Autowired                                //byType
+	Address address;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	//default constructor
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	//param constructor
+	public Student(int id, String name, Address address) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+	}
+
+	//toString() method
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", address=" + address + "]";
+	}	
+}
+
+
+Test.java
+==========
+
+package com.springapplicationcontext;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		ApplicationContext factory = new ClassPathXmlApplicationContext("springconfiguration.xml");
+		
+		Student std = (Student) factory.getBean("student");
+		System.out.println(std);
+	}
+}
+
+Address.java
+=============
+
+package com.springapplicationcontext;
+
+public class Address {
+
+	private int houseNo;
+	private String city;
+	private String state;
+	
+	//getters and setters
+	public int getHouseNo() {
+		return houseNo;
+	}
+	public void setHouseNo(int houseNo) {
+		this.houseNo = houseNo;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	
+	//default constructor
+	public Address() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	//param constructor
+	public Address(int houseNo, String city, String state) {
+		super();
+		this.houseNo = houseNo;
+		this.city = city;
+		this.state = state;
+	}
+	
+	//toString() method
+	@Override
+	public String toString() {
+		return "Address [houseNo=" + houseNo + ", city=" + city + ", state=" + state + "]";
+	}
+	
+	
+}
+
+springconfiguration.java
+=========================
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<context:annotation-config></context:annotation-config>
+	
+<bean class = "com.springapplicationcontext.Student" id = "student">
+	<property name = "id" value = "10"></property>
+	<property name = "name" value="ritika"> </property>	
+</bean>
+
+<bean class ="com.springapplicationcontext.Address" id = "add">
+	<property name = "houseNo" value = "1223"> </property>
+	<property name = "city" value = "jaipur"> </property>
+	<property name = "state" value = "Rajasthan"> </property>
+</bean>
+
+</beans>
+
+Output
+========
+
+Student [id=10, name=ritika, address=Address [houseNo=1223, city=jaipur, state=Rajasthan]]
+
+
+******************************************************************Application Context Spring (byName annotation)**********************************************************
+
+Student.java
+=============
+
+package com.springapplicationcontext;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class Student {
+	
+	private int id;
+	private String name;
+	
+	Address address;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+  
+  @AutoWired                                                            //byName
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	//default constructor
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	//param constructor
+	public Student(int id, String name, Address address) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+	}
+	
+	//toString() method
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", address=" + address + "]";
+	}	
+}
+
+Test.java
+==========
+
+package com.springapplicationcontext;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		ApplicationContext factory = new ClassPathXmlApplicationContext("springconfiguration.xml");
+		
+		Student std = (Student) factory.getBean("student");
+		System.out.println(std);
+	}
+}
+
+
+Address.java
+=============
+
+package com.springapplicationcontext;
+
+public class Address {
+
+	private int houseNo;
+	private String city;
+	private String state;
+	
+	//getters and setters
+	public int getHouseNo() {
+		return houseNo;
+	}
+	public void setHouseNo(int houseNo) {
+		this.houseNo = houseNo;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	
+	//default constructor
+	public Address() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	//param constructor
+	public Address(int houseNo, String city, String state) {
+		super();
+		this.houseNo = houseNo;
+		this.city = city;
+		this.state = state;
+	}
+	
+	//toString() method
+	@Override
+	public String toString() {
+		return "Address [houseNo=" + houseNo + ", city=" + city + ", state=" + state + "]";
+	}
+	
+	
+}
+
+springconfiguration.java
+=========================
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<context:annotation-config></context:annotation-config>
+	
+<bean class = "com.springapplicationcontext.Student" id = "student">
+	<property name = "id" value = "10"></property>
+	<property name = "name" value="ritika"> </property>	
+</bean>
+
+<bean class ="com.springapplicationcontext.Address" id = "add">
+	<property name = "houseNo" value = "1223"> </property>
+	<property name = "city" value = "jaipur"> </property>
+	<property name = "state" value = "Rajasthan"> </property>
+</bean>
+
+</beans>
+
+
+Output
+=======
+
+Student [id=10, name=ritika, address=Address [houseNo=1223, city=jaipur, state=Rajasthan]]
+
+
+***********************************************************Application Context Spring (constructor annotation)*******************************************************
+
+Student.java
+=============
+
+package com.springapplicationcontext;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class Student {
+	
+	private int id;
+	private String name;
+	
+	
+	Address address;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	//default constructor
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	@Autowired
+	//param constructor
+	public Student(int id, String name, Address address) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+	}
+
+	
+	//toString() method
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", address=" + address + "]";
+	}
+	
+}
+
+Test.java
+==========
+
+package com.springapplicationcontext;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		ApplicationContext factory = new ClassPathXmlApplicationContext("springconfiguration.xml");
+		
+		Student std = (Student) factory.getBean("student");
+		System.out.println(std);
+	}
+}
+
+Address.java
+=============
+
+package com.springapplicationcontext;
+
+public class Address {
+
+	private int houseNo;
+	private String city;
+	private String state;
+	
+	//getters and setters
+	public int getHouseNo() {
+		return houseNo;
+	}
+	public void setHouseNo(int houseNo) {
+		this.houseNo = houseNo;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	
+	//default constructor
+	public Address() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	//param constructor
+	public Address(int houseNo, String city, String state) {
+		super();
+		this.houseNo = houseNo;
+		this.city = city;
+		this.state = state;
+	}
+	
+	//toString() method
+	@Override
+	public String toString() {
+		return "Address [houseNo=" + houseNo + ", city=" + city + ", state=" + state + "]";
+	}	
+}
+
+
+springconfiguration.xml
+========================
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<context:annotation-config></context:annotation-config>
+	
+<bean class = "com.springapplicationcontext.Student" id = "student">
+	<constructor-arg name = "id" value = "100"></constructor-arg>
+	<constructor-arg name = "name" value="Vinay"> </constructor-arg>	
+</bean>
+
+<bean class ="com.springapplicationcontext.Address" id = "add">
+	<constructor-arg name = "houseNo" value = "1223"> </constructor-arg>
+	<constructor-arg name = "city" value = "jaipur"> </constructor-arg>
+	<constructor-arg name = "state" value = "Rajasthan"> </constructor-arg>
+</bean>
+
+</beans>
+
+
