@@ -1,0 +1,207 @@
+Session-1
+
+
+1. create a class and with divide two numbers by using Scanner class.(z=a/b).without try catch
+
+
+package day14;
+
+import java.util.Scanner;
+
+public class ExceptionEx1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter a number: ");
+		int a=sc.nextInt();
+		
+		System.out.println("Enter another number");
+		int b=sc.nextInt();
+		
+		
+		if(b==0)
+		{
+			System.out.println("b can't be zero");
+		}
+		
+		else
+		{
+			int c=a/b;
+			
+			System.out.println(c);
+		}
+	}
+
+}
+
+
+2. create a class and take the input from by using scanner class, as a end user take two numbers with division and observe which type of exception raised. and apply try catch blocks
+
+
+package day14;
+
+import java.util.Scanner;
+
+public class ExceptionEx2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter a number");
+		int a=sc.nextInt();
+		
+		System.out.println("Enter Another Number");
+		int b=sc.nextInt();
+		
+		try
+		{
+			int c=a/b;
+			System.out.println(c);
+		}
+		
+		catch(Throwable ae)
+		{
+			System.out.println("Denominator Can't be zero");
+		}
+
+	}
+
+}
+
+
+3.Create a class with single try multi catch blocks.
+
+package day14;
+
+import java.util.Scanner;
+
+public class ExceptionEx3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter a number");
+		int a=sc.nextInt();
+		
+		System.out.println("Enter Another Number");
+		int b=sc.nextInt();
+		
+		try
+		{
+			int k=a/b;
+			System.out.println(k);
+			int c[]=new int[5];
+			c[5]=6;
+			System.out.println(c);
+		}
+		
+		catch(ArrayIndexOutOfBoundsException ae)
+		{
+			System.out.println(ae);
+		}
+		
+		catch(ArithmeticException ae)
+		{
+			System.out.println(ae);
+		}
+		
+		catch(NumberFormatException ae)
+		{
+			System.out.println(ae);
+			
+		}
+		
+		catch(Exception ae)
+		{
+			System.out.println(ae);
+		}
+		
+		finally
+		{
+			System.out.println("Everything is fine vinay");
+		}
+		
+		System.out.println("Okk Good");
+		
+
+	}
+
+}
+
+
+Session 2
+
+1. create a class with user defined exceptions.
+
+package day14;
+
+class MEx extends Exception 
+{
+int age;
+
+public MEx(int age)
+{
+	this.age=age;
+}
+
+public String toString()
+{
+	return "You are not eligible for vote";
+}
+}
+
+public class MyException3 {
+
+	static void getData(int age) throws MEx
+	{
+		if(age<18)
+		{
+			throw new MEx(19);
+			
+		}
+		
+		else
+		{
+			System.out.println("You are eligible for vote");
+		}
+	}
+	public static void main(String[] args) throws MEx {
+		// TODO Auto-generated method stub
+       
+		getData(17);
+		System.out.println("Remaining code");
+		
+	}
+
+}
+
+
+2. create a class with Marks, and valid Marks method, give some number marks are less than he/she fails otherwise pass by using throw keyword.
+
+
+package day14;
+
+public class Mex2 {
+
+	public void getData(int a)
+	{
+		if(a<33)
+			throw new ArithmeticException("You r failed");
+
+		else
+			System.out.println("You r passed");
+	}
+	
+ static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	        Mex2 mx=new Mex2();
+			mx.getData(30);
+	}
+
+}
