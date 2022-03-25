@@ -1,0 +1,245 @@
+Session-1
+
+1. Create a class name Demo, create a file.
+
+
+package day13;
+
+import java.io.File;import java.io.IOException;
+public class Demo {
+
+	public static void main(String[] args) throws IOException {
+		
+		File file=new File("file.txt");
+		
+		file.createNewFile();
+}
+}
+
+
+2. create a class and add file and folder into the project.
+
+
+package day13;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Project {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		File file =new File("file.txt");
+		file.createNewFile();
+		
+		FileWriter fw=new FileWriter("file.txt");
+		fw.write("hlw");
+		fw.write("Kaise ho");
+           file.close();
+
+	}
+
+}
+
+
+3. create a class and write the information by using File Writer.
+
+
+package day13;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Project3 {
+
+	public static void main(String[] args) throws IOException{
+		// TODO Auto-generated method stub
+
+		FileWriter fw=new FileWriter("file.txt");
+		
+		bw.write("Hii vinay");
+		bw.write("fine");
+           
+	}
+
+}
+
+4. create a class and write the information by using Buffered Writer.
+
+package day13;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Project3 {
+
+	public static void main(String[] args) throws IOException{
+		// TODO Auto-generated method stub
+
+		FileWriter fw=new FileWriter("file.txt");
+		BufferedWriter bw=new BufferedWriter(fw);
+		bw.write("Hii vinay");
+		bw.write("fine");
+	}
+
+}
+
+5. create a class and write the information by using Print Writer.
+
+
+package day13;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class Project3 {
+
+	public static void main(String[] args) throws IOException{
+		// TODO Auto-generated method stub
+
+		FileWriter fw=new FileWriter("file.txt");
+		PrintWriter bw=new PrintWriter(fw);
+		bw.println("Hii vinay");
+		bw.println("fine");
+	}
+
+}
+
+6. create a class and read the information by using File Reader.
+
+package day13;
+
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Project3 {
+
+	public static void main(String[] args) throws IOException{
+		// TODO Auto-generated method stub
+
+		FileReader fwr=new FileReader("file.txt");
+		
+		while(fwr.read()!=-1)
+		{
+		
+			char c=(char)(fwr.read());
+			System.out.println(c);
+		}
+	}
+
+}
+
+7. create a class and read the information by using Buffered Reader.
+
+package day13;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Project3 {
+
+	public static void main(String[] args) throws IOException{
+		// TODO Auto-generated method stub
+
+		FileReader fwr=new FileReader("file.txt");
+		BufferedReader br=new BufferedReader(fwr);
+		
+		
+		while(br.read()!=-1)
+		{
+			char c=(char)br.read();
+			System.out.println(c);
+		}
+	
+	}
+
+}
+
+
+
+Session-2
+
+
+1. create a class ArrayList apply without generics.
+
+
+package day13;
+
+import java.util.ArrayList;
+
+public class ArrayListEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ArrayList ar=new ArrayList();
+		ar.add("Vinay");
+		ar.add(null);
+		ar.add(123);
+		ar.add(ar);
+		ar.add(new Integer(23));
+		
+		System.out.println(ar);
+	
+	    System.out.println();
+	
+	for(Object o:ar)        //for each loop
+	{
+		System.out.println(o);
+	}
+	
+     System.out.println();
+
+     for(int i=0;i<ar.size();i++)       //for loop
+     {
+    	 System.out.println(ar.get(i));   
+     }
+	}
+
+}
+
+
+2.create a class LinkedList apply with generics.
+
+
+package day13;
+
+import java.util.LinkedList;
+
+public class LinkedListEx {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		LinkedList<Integer> ar=new LinkedList<>();
+		ar.add(121);
+		ar.add(122);
+		ar.add(123);
+		ar.add(124);
+		ar.add(new Integer(23));
+		
+		System.out.println(ar);
+	
+	    System.out.println();
+	
+	for(Object o:ar)        //for each loop
+	{
+		System.out.println(o);
+	}
+	
+     System.out.println();
+
+     for(int i=0;i<ar.size();i++)       //for loop
+     {
+    	 System.out.println(ar.get(i));   
+     }
+	}
+
+}
